@@ -1,0 +1,61 @@
+$date
+	Sun Aug 02 15:32:30 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 4 ! sum [3:0] $end
+$var wire 1 " carry $end
+$var reg 4 # A [3:0] $end
+$var reg 4 $ B [3:0] $end
+$var reg 1 % cin $end
+$scope module dut $end
+$var wire 4 & A [3:0] $end
+$var wire 4 ' B [3:0] $end
+$var wire 1 % cin $end
+$var wire 4 ( SUM [3:0] $end
+$var wire 1 " CARRY $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx (
+bx '
+bx &
+x%
+bx $
+bx #
+x"
+bx !
+$end
+#10
+b1011 !
+b1011 (
+0"
+0%
+b1000 $
+b1000 '
+b11 #
+b11 &
+#20
+b1001 !
+b1001 (
+1"
+b1010 $
+b1010 '
+b1111 #
+b1111 &
+#30
+b0 !
+b0 (
+1%
+b1100 $
+b1100 '
+b11 #
+b11 &
+#40

@@ -1,0 +1,63 @@
+$date
+	Mon Aug 10 09:40:10 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 1 ! Y $end
+$var reg 1 " A $end
+$var reg 1 # B $end
+$var reg 3 $ op [2:0] $end
+$var integer 32 % i [31:0] $end
+$scope module dut $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 3 & operator [2:0] $end
+$var reg 1 ! Y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 &
+b0 %
+b0 $
+1#
+1"
+0!
+$end
+#10
+b1 %
+b1 $
+b1 &
+#20
+1!
+b10 %
+b10 $
+b10 &
+#30
+b11 %
+b11 $
+b11 &
+#40
+0!
+b100 %
+b100 $
+b100 &
+#50
+b101 %
+b101 $
+b101 &
+#60
+b110 %
+b110 $
+b110 &
+#70
+b111 %
+b111 $
+b111 &
+#80

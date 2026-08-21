@@ -1,0 +1,100 @@
+$date
+	Sat Aug 15 12:33:55 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 1 ! carry $end
+$var wire 4 " Y [3:0] $end
+$var reg 4 # A [3:0] $end
+$var reg 4 $ B [3:0] $end
+$var reg 4 % op [3:0] $end
+$var integer 32 & i [31:0] $end
+$scope module dut $end
+$var wire 4 ' A [3:0] $end
+$var wire 4 ( B [3:0] $end
+$var wire 4 ) op [3:0] $end
+$var reg 4 * Y [3:0] $end
+$var reg 1 ! carry $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 *
+bx )
+b100 (
+b1001 '
+b0 &
+bx %
+b100 $
+b1001 #
+b0 "
+0!
+$end
+#10
+b1101 "
+b1101 *
+b1 &
+b0 %
+b0 )
+#20
+b101 "
+b101 *
+b10 &
+b1 %
+b1 )
+#30
+b0 "
+b0 *
+b11 &
+b10 %
+b10 )
+#40
+b1101 "
+b1101 *
+b100 &
+b11 %
+b11 )
+#50
+b101 &
+b100 %
+b100 )
+#60
+b110 "
+b110 *
+b110 &
+b101 %
+b101 )
+#70
+b10 "
+b10 *
+b111 &
+b110 %
+b110 )
+#80
+b1010 "
+b1010 *
+b1000 &
+b111 %
+b111 )
+#90
+b1000 "
+b1000 *
+b1001 &
+b1000 %
+b1000 )
+#100
+b101 "
+b101 *
+b1010 &
+b1001 %
+b1001 )
+#110
+b1011 &
+b1010 %
+b1010 )
