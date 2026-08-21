@@ -78,7 +78,13 @@ $monitor("TIME = %0t | clk =%b | coin5 = %b | coin10 = %b | DISPENSE = %b",$time
 clk = 0;reset = 1;coin5 = 1;
 #10 reset =0;
 #10 coin5=1;coin10 =1;
+#10 coin5=1;coin10 =1;
+#10 coin5=1;coin10 =1;
 
+
+
+
+//task adding is in progress.
 end
 
 
