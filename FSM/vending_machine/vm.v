@@ -69,22 +69,46 @@ vm dut(.clk(clk),.reset(reset),.coin5(coin5),.coin10(coin10),.dispense(Y));
 
 always #5 clk = ~clk;
 
+task coins;
+input c5,c10;
+begin
+coin5 = c5;
+coin10 = c10;
+end
+endtask
+
 initial 
 begin
 $dumpfile("vm_.vcd");
 $dumpvars(0,tb);
 
 $monitor("TIME = %0t | clk =%b | coin5 = %b | coin10 = %b | DISPENSE = %b",$time,clk,coin5,coin10,Y);
-clk = 0;reset = 1;coin5 = 1;
-#10 reset =0;
-#10 coin5=1;coin10 =1;
-#10 coin5=1;coin10 =1;
-#10 coin5=1;coin10 =1;
+clk = 0;reset = 1;coin5 = 1;coin10 = 0;
+#10 reset = 0;
 
+// ₹5 → total ₹5
+#10 coins(1,0);
 
+// ₹5 → total ₹10 → DISPENSE
+#10 coins(1,0);
 
+// No coin
+#10 coins(0,0);
 
-//task adding is in progress.
+// ₹10 → total ₹10 → DISPENSE
+#10 coins(0,1);
+
+// No coin
+#10 coins(0,0);
+
+// ₹5 → total ₹5
+#10 coins(1,0);
+
+// ₹10 → total ₹15 → DISPENSE
+#10 coins(0,1);
+
+#10 $finish;
+
 end
 
 
