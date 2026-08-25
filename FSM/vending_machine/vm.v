@@ -2,12 +2,22 @@
 // MODULE : VENDING MACHINE
 // AUTHOR : TANVI NARIYA
 // DESCRIPTION :
-//               VENDING MACHINE WHICH DISPENSE WHEM AMOUNT 10$ AND 15$.
+//               VENDING MACHINE WHICH DISPENSE WHEN AMOUNT 
+//               10$ AND 15$ inserted.
 //---------------------------------------------------------------
 module vm(input clk,input reset,input coin10,input coin5,output reg dispense);
+
+//STATE DECLARATION
 reg [2:0]state,next_state;
+
+/*STATE ENCODING
+STATES S0: WHEN NO COIN INSERTED
+        S5 : COIN OF 5 IS INSERTED
+        S10 : COIN 10 IS INSERTED
+*/
 parameter S0 = 3'b001,S5 = 3'b010,S10 = 3'b100;
 
+//STATE REGISTER
 always @(posedge clk)
 begin
 if(reset)
@@ -16,6 +26,7 @@ else
 state <= next_state;
 end
 
+//NEXT STATE LOGIC
 always @(*)
 begin
 next_state = S0;
@@ -42,6 +53,7 @@ default : next_state = S0;
 endcase
 end
 
+//OUTPUT LOGIC
 always @(*)
 begin
     if(state == S5 && (coin10 | coin5))
@@ -60,7 +72,7 @@ endmodule
 
 
 
-
+//TEST BENCH
 module tb;
 reg clk,reset,coin5,coin10;
 wire Y;
