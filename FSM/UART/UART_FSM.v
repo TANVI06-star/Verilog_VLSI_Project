@@ -8,11 +8,16 @@
 
 module uart_fsm(input [7:0]data,input clk,input reset,input start,output reg transmit_data);
 
+// STATE , COUNTER AND RRESGIATER DECLARATION
 reg [1:0]state,next_state;
 reg [2:0]count;
 
 reg [7:0]D;
 
+/* STATE ENCODING
+STATES : IDLE : WHEN DATA IS NOT TRANSMITTING  
+        DATA : WHEN DATA IS TRASNMITTING
+*/
 parameter IDLE=1'b0,DATA=1'b1;
 
 //STATE REGISTER
@@ -20,7 +25,7 @@ always @(posedge clk)
 begin
 if(reset) begin
 state <= IDLE;
-D <= 8'b0;
+D <= 8'h00;
 end
 else begin
 state <= next_state;
@@ -32,10 +37,10 @@ end
 end
 
 
-//COUNTER
+//COUNTER LOGIC
 always @(posedge clk)
 begin
-    
+    transmit_data = 1'b0;
 if(reset)
 count <= 3'b000;
 else if(state == DATA)
@@ -53,7 +58,7 @@ else
 count <= 3'b000;
 end
 
-//NEXT STATE LOGIC
+//NEXT STATE LOGIC AND OUTPUT LOGIC
 always @(*)
 begin
 next_state = IDLE;
@@ -74,11 +79,9 @@ default : next_state = IDLE;
 endcase
 end
 
-
-
 endmodule
 
-
+// TEST BENCH
 module tb;
 reg clk,start,reset;
 reg [7:0]data;
@@ -98,9 +101,13 @@ $dumpfile("uart_fsm.vcd");
 $dumpvars(0,tb);
 
 $monitor("TIME = %0t | Clk = %b | Start = %b | Data = %b | TRANSMITTED DATA = %b ",$time,clk,start,data,Y);
-start = 0;data = 8'h9C; reset=1;
-#5 reset =0;
-#100 $finish;
+//SIGNALING FOR TRANSMITION BY START =0 AND RESETING IT AND TRANSMITTING 8-BIT DATA
+start =1;data = 8'h9C; reset=1;
+#5 reset =0;start = 0;
+
+//STOPING THE TRANSMISSION
+#100 start = 1;reset = 1;
+#10 $finish;
 
 end
 
