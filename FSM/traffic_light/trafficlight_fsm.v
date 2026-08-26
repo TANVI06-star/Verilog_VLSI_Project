@@ -103,11 +103,13 @@ wire [2:0]signal;
 
 tl dut(.clk(clk),.reset(reset),.Y(Y),.SIGNAL(signal));
 
+//clock generation
 initial
 begin
 clk = 0;
 forever #5 clk = ~clk;
 end
+
 
 initial
 begin
