@@ -94,6 +94,8 @@ end
 endmodule
 
 //TEST BENCH
+
+`timescale 1ns/1ps
 module tb;
 reg clk,reset;
 wire Y;
