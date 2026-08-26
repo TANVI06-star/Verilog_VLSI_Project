@@ -82,6 +82,8 @@ end
 endmodule
 
 // TEST BENCH
+
+`timescale 1ns/1ps
 module tb;
 reg clk,start,reset;
 reg [7:0]data;
