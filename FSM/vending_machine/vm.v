@@ -73,6 +73,7 @@ endmodule
 
 
 //TEST BENCH
+`timescale 1ns/1ps
 module tb;
 reg clk,reset,coin5,coin10;
 wire Y;
