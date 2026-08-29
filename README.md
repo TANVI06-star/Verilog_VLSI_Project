@@ -54,8 +54,13 @@ Verilog_VLSI_Project/
 ├── four_bit_adder/
 ├── full_adder/
 ├── half_adder/
+├── mux2x1/
+├── mux4x1/
+└── test/
+text```
+---
 
-##  Future Work
+## 🚀 Future Work
 
 - Advanced Verilog Projects
 - SystemVerilog
@@ -69,13 +74,10 @@ Verilog_VLSI_Project/
 
 ---
 
-## Author
+## 👩‍💻 Author
 
 **Tanvi Nariya**
 
 B.Tech Electronics & Communication Engineering
 
 Interested in VLSI Design, Verification & Testing.
-├── mux2x1/
-├── mux4x1/
-└── test/
