@@ -1,6 +1,19 @@
 # Verilog & VLSI Projects
 
-This repository contains my hands-on Verilog HDL projects developed while learning Digital Design, RTL Design, and Verification.
+This repository contains my hands-on Verilog HDL projects and practice work developed while learning Digital Design, RTL Design, FSMs, and Verification.
+
+## Topics Covered
+
+- Digital Design Fundamentals
+- Verilog HDL
+- Dataflow Modeling
+- Behavioral Modeling
+- RTL Design
+- Combinational & Sequential Logic
+- FSM Design
+- Verification & Testbenches
+- Self-Checking Testbenches
+- Simulation & Waveform Analysis
 
 ## Projects
 
@@ -11,14 +24,13 @@ This repository contains my hands-on Verilog HDL projects developed while learni
 - 4×1 Multiplexer
 - Encoder
 - Decoder
-- Behavioral Verilog Designs
-- Flip-flop
+- Flip-Flops
 - Counters
-- Shift registers
-- FSM-based Designs
+- Shift Registers
+- Behavioral Verilog Designs
+- Sequence Detector
 - Traffic Light Controller
 - UART Protocol
-- Sequence Detector
 - Vending Machine
 - Self-Checking Adder Verification
 
@@ -28,17 +40,6 @@ This repository contains my hands-on Verilog HDL projects developed while learni
 - Icarus Verilog
 - GTKWave
 - Git & GitHub
-
-## Concepts Covered
-
-- Digital Logic Design
-- Combinational Logic
-- Sequential Logic
-- Finite State Machines (FSM)
-- RTL Design
-- Testbench Development
-- Self-Checking And Directed Testbenches
-- Simulation & Waveform Analysis
 
 ## Repository Structure
 
@@ -53,6 +54,28 @@ Verilog_VLSI_Project/
 ├── four_bit_adder/
 ├── full_adder/
 ├── half_adder/
+
+##  Future Work
+
+- Advanced Verilog Projects
+- SystemVerilog
+- Assertions
+- Functional Coverage
+- Advanced Verification
+- UVM
+- VLSI Design-for-Test (DFT)
+- ATPG
+- Scan Testing
+
+---
+
+## Author
+
+**Tanvi Nariya**
+
+B.Tech Electronics & Communication Engineering
+
+Interested in VLSI Design, Verification & Testing.
 ├── mux2x1/
 ├── mux4x1/
 └── test/
