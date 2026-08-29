@@ -12,8 +12,13 @@ This repository contains my hands-on Verilog HDL projects developed while learni
 - Encoder
 - Decoder
 - Behavioral Verilog Designs
+- Flip-flop
+- Counters
+- Shift registers
 - FSM-based Designs
 - Traffic Light Controller
+- UART Protocol
+- Sequence Detector
 - Vending Machine
 - Self-Checking Adder Verification
 
@@ -32,7 +37,7 @@ This repository contains my hands-on Verilog HDL projects developed while learni
 - Finite State Machines (FSM)
 - RTL Design
 - Testbench Development
-- Self-Checking Testbenches
+- Self-Checking And Directed Testbenches
 - Simulation & Waveform Analysis
 
 ## Repository Structure
