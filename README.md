@@ -57,10 +57,9 @@ Verilog_VLSI_Project/
 ├── mux2x1/
 ├── mux4x1/
 └── test/
-text```
----
+```
 
-## 🚀 Future Work
+## Future Work
 
 - Advanced Verilog Projects
 - SystemVerilog
@@ -72,9 +71,7 @@ text```
 - ATPG
 - Scan Testing
 
----
-
-## 👩‍💻 Author
+## Author
 
 **Tanvi Nariya**
 
