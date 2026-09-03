@@ -2,7 +2,7 @@
 // MODULE : TRAFFIC LIGHT CONTROLLER
 // AUTHOR : TANVI NARIYA
 // DESCRIPTION :
-//              Traffic light controller using FSM concept.(3 PROCESS)
+//              Traffic light controller using FSM concept.(2 PROCESS)
 //---------------------------------------------------------------
 
 module tl(input clk,input reset,output reg [2:0]SIGNAL);
@@ -18,6 +18,8 @@ STATE : RED : UNTILL CUNT REACHES 9 THEN MOVE TO YELLOW
 */
 parameter RED=2'b00,YELLOW=2'b01,GREEN=2'b10;
 
+parameter RED_TIME=5,YELLOW_TIME=3,GREEN_TIME=5;
+
 //STATE REGISTER
 always @(posedge clk)
 begin
@@ -30,17 +32,11 @@ else
 begin
 state <= next_state;
 
-if ((state == RED) && (count == 9))
+if ((state == RED) && (count == RED_TIME))
 count <= 1'b0;
-else
-count <= count + 1'b1;
-
-if ((state == YELLOW) && (count == 3))
+else if ((state == YELLOW) && (count == YELLOW_TIME))
 count <= 1'b0;
-else
-count <= count + 1'b1;
-
-if ((state == GREEN) && (count == 9))
+else if ((state == GREEN) && (count == GREEN_TIME))
 count <= 1'b0;
 else
 count <= count + 1'b1;
@@ -55,7 +51,7 @@ begin
 next_state = RED;
 case(state)
 RED : begin
-        if(count <= 9)begin
+        if(count < RED_TIME)begin
                   next_state = RED;
                   SIGNAL = 3'b100;
                 
@@ -67,7 +63,7 @@ RED : begin
 
         end
 YELLOW : begin
-        if(count <= 3)begin
+        if(count < YELLOW_TIME)begin
                   next_state = YELLOW;
                   SIGNAL = 3'b010;
         end
@@ -77,7 +73,7 @@ YELLOW : begin
         end
 end
 GREEN : begin
-        if(count <= 9)begin
+        if(count < GREEN_TIME)begin
                   next_state = GREEN;
                   SIGNAL = 3'b001;
         end
@@ -102,7 +98,6 @@ endmodule
 module tb;
 reg clk,reset;
 wire [2:0]signal;
-integer error;
 
 //driver
 tl dut(.clk(clk),.reset(reset),.SIGNAL(signal));
@@ -121,29 +116,21 @@ $dumpfile("traffic_light.vcd");
 $dumpvars(0,tb);
 
 //monitoring
-$monitor("TIME = %0t | clk = %b | SIGNAL = %b",$time,clk,signal);
+$monitor("TIME = %0t |  |COUNT = %d | STATE = %b | SIGNAL = %b",$time,dut.count,dut.state,signal);
 
 //INITIALIZING CLOCK
-reset=1;error = 0;
+reset=1;
 #10 reset =0;
 #100 $finish;
 
-// DISPLAYING THE RESULT THE OF SCORECARD
-if(error == 0)
-$display("SIMULATION IS PASS.");
-else
-$display("SIMULATION IS FAILS.");
-
 end
 
-//SCORECARD
 //CHECKING SAFETY PROPERTY
-always @(*)
+always @(posedge clk)
 begin
         if(((|signal) != 1 ))
         begin
                 $display("FAIL");
-                error = error + 1;
         end
         else
         $display("PASS.");
