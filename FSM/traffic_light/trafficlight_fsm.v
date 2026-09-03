@@ -137,6 +137,7 @@ $display("SIMULATION IS FAILS.");
 end
 
 //SCORECARD
+//CHECKING SAFETY PROPERTY
 always @(*)
 begin
         if(((|signal) != 1 ))
